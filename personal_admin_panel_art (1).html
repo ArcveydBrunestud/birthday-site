@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e9e9e4">
+<title>ЛИЧНОЕ ДОСЬЕ // 001</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --paper:#e8e8e3;
+  --ink:#111;
+  --muted:#626660;
+  --grid:rgba(40,70,60,.075);
+  --line:#151515;
+  --acid:#59a878;
+  --acid2:rgba(89,168,120,.42);
+}
+*{box-sizing:border-box}
+html{background:#cfd0ca}
+body{
+  margin:0;
+  color:var(--ink);
+  background:#cfd0ca;
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:-.035em;
+}
+.poster{
+  position:relative;
+  width:min(760px,100%);
+  min-height:100vh;
+  margin:auto;
+  padding:22px 24px 18px;
+  overflow:hidden;
+  background:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px),
+    var(--paper);
+  background-size:10px 10px;
+  box-shadow:0 0 45px rgba(0,0,0,.12);
+}
+.poster:before{
+  content:"";
+  position:absolute;inset:12px;
+  border:1px solid rgba(0,0,0,.38);
+  pointer-events:none;
+}
+header,.section,.hero,.footer{position:relative;z-index:1}
+header{
+  display:grid;
+  grid-template-columns:1fr 230px;
+  gap:20px;
+  border-bottom:1px solid var(--line);
+  padding:0 5px 12px;
+}
+h1{font-size:clamp(26px,5vw,43px);line-height:1.02;margin:0 0 8px;font-weight:500;letter-spacing:-.075em}
+.subtitle{font-size:15px;line-height:1.35}
+.meta{font-size:11px;line-height:1.55;text-align:right}
+.badge{border:1px solid var(--acid);color:#31784d;padding:1px 7px}
+.section-title{font-size:12px;margin:17px 0 9px;font-weight:600}
+.hero{
+  min-height:330px;
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:15px;
+  position:relative;
+}
+.metrics{padding:4px 5px 0}
+.metric{margin:14px 0}
+.metric-top{display:flex;justify-content:space-between;font-size:12px}
+.track{height:9px;border:1px solid #777;margin-top:5px;background:repeating-linear-gradient(90deg,transparent 0 9px,#b7b9b3 9px 10px)}
+.fill{height:100%;background:#171717;width:var(--w)}
+.art{
+  position:relative;
+  min-height:320px;
+  display:flex;align-items:center;justify-content:center;
+}
+.skate{
+  width:175px;height:285px;
+  border:3px solid #151515;
+  border-radius:50% 50% 46% 46%;
+  transform:rotate(12deg);
+  position:relative;
+  background:
+    radial-gradient(circle at 30% 30%,#111 0 2px,transparent 2.5px) 0 0/7px 7px,
+    repeating-linear-gradient(75deg,#202020 0 4px,#777 4px 6px,#111 6px 8px);
+  filter:grayscale(1);
+}
+.skate:before,.skate:after{
+  content:"";position:absolute;left:18px;right:18px;height:12px;background:#111;border:2px solid #777;
+}
+.skate:before{top:82px}.skate:after{bottom:82px}
+.wheel{position:absolute;width:26px;height:26px;border:4px solid #111;border-radius:50%;background:#aaa}
+.w1{left:5px;top:74px}.w2{right:5px;top:74px}.w3{left:5px;bottom:74px}.w4{right:5px;bottom:74px}
+.callout{position:absolute;border:1px solid var(--acid);color:#31784d;padding:3px 6px;font-size:10px;background:rgba(232,232,227,.65)}
+.c1{top:30px;right:25px}.c2{left:0;top:130px}.c3{right:0;bottom:45px}
+.line{position:absolute;height:1px;background:var(--acid2);transform-origin:left}
+.l1{width:180px;right:45px;top:58px;transform:rotate(155deg)}
+.l2{width:170px;left:45px;top:150px;transform:rotate(-12deg)}
+.l3{width:150px;right:40px;bottom:58px;transform:rotate(180deg)}
+.side-note{
+  position:absolute;right:0;top:92px;writing-mode:vertical-rl;font-size:10px;
+  transform:rotate(180deg);color:#333;
+}
+.protocol{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:12px 5px;
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.bigdate{font-size:clamp(30px,7vw,54px);letter-spacing:-.08em;line-height:1}
+.label{font-size:10px;color:#555;margin-bottom:5px}
+.terminal{
+  border:1px solid #6e706b;
+  padding:12px;
+  min-height:145px;
+  background:rgba(255,255,255,.14);
+  font-size:11px;line-height:1.7;
+}
+button{
+  width:100%;margin-top:12px;padding:12px 13px;
+  background:var(--acid);border:1px solid #34704c;color:#0b2113;
+  font:600 12px "IBM Plex Mono",monospace;cursor:pointer;
+}
+button:hover{filter:brightness(1.04)}
+.status{margin-top:10px;min-height:42px;font-size:11px}
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 5px}
+.note{font-size:11px;line-height:1.55}
+.quote{font-size:15px;line-height:1.3}
+.gift{
+  margin-top:5px;border:1px solid #222;
+  padding:14px;
+  background:
+   radial-gradient(#111 1px,transparent 1.5px) 0 0/6px 6px;
+}
+.gift-inner{
+  background:rgba(238,238,232,.96);
+  padding:14px;
+  color:#080808;
+  font-weight:600;
+}
+.diagnosis-box{
+  border:2px solid #111;
+  background:#f3f3ed;
+  color:#080808;
+  padding:16px;
+  margin:0 0 14px;
+  box-shadow:4px 4px 0 rgba(0,0,0,.18);
+}
+.diagnosis-title{
+  font-size:clamp(16px,4vw,22px);
+  font-weight:800;
+  letter-spacing:-.045em;
+  margin-bottom:12px;
+}
+.diagnosis-age{
+  font-size:clamp(14px,3.5vw,18px);
+  line-height:1.45;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.diagnosis-note{
+  border-top:1px solid #777;
+  padding-top:11px;
+  font-size:12px;
+  line-height:1.65;
+  font-weight:600;
+}
+.birthday{
+  margin-bottom:18px;
+  border-bottom:1px solid #777;
+  padding-bottom:18px;
+}
+.birthday-title{font-weight:800;
+  font-size:clamp(28px,7vw,50px);
+  line-height:1;
+  letter-spacing:-.08em;
+  margin:8px 0 15px;
+}
+.birthday p{
+  font-size:12px;
+  line-height:1.65;
+  margin:8px 0;
+}
+.gift-title{font-size:clamp(23px,5vw,39px);line-height:1;margin-bottom:10px}
+.progress{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:10px}
+.progress i{height:15px;border:1px solid #222;background:#222}
+.progress i:nth-child(n+7){background:transparent}
+.footer{
+  border-top:1px solid var(--line);
+  margin-top:16px;padding:12px 5px 0;
+  display:flex;justify-content:space-between;gap:15px;align-items:end;font-size:10px;
+}
+.footer strong{font-size:17px;font-weight:500}
+.stamp{border:1px solid #222;border-radius:50%;padding:7px 9px;font-size:9px}
+.hidden{display:none}
+@media(max-width:560px){
+  body{background:var(--paper)}
+  .poster{padding:18px 15px 14px;box-shadow:none}
+  header{grid-template-columns:1fr;gap:8px}
+  .meta{text-align:left}
+  .hero{grid-template-columns:1fr;min-height:570px}
+  .metrics{order:2}
+  .art{order:1;min-height:300px}
+  .skate{width:140px;height:235px}
+  .side-note{top:50px}
+  .protocol,.notes{grid-template-columns:1fr}
+  .protocol{gap:16px}
+  .footer{align-items:center}
+}
+</style>
+</head>
+<body>
+<main class="poster">
+<header>
+  <div>
+    <h1># 人物档案 //<br>С ДНЁМ РОЖДЕНИЯ</h1>
+    <div class="subtitle">ОПРЕДЕЛЕННОСТЬ/  УВЕРЕННОСТЬ [ТОМ 32 ] // <span class="badge">ОБЪЕКТ 001</span></div>
+  </div>
+  <div class="meta">
+    [CONFIG.TEAM] // PERSONAL LAB<br>
+    
+    
+    ПРОГРАММА // №∞<br>
+    СТАТУС: <span class="green">В СЕТИ</span>
+  </div>
+</header>
+
+<div class="section-title">[ ОСНОВНЫЕ ПАРАМЕТРЫ ]</div>
+<section class="hero">
+  <div class="metrics">
+    <div class="metric"><div class="metric-top"><span>КОДИНГ</span><span>94</span></div><div class="track"><div class="fill" style="--w:94%"></div></div></div>
+    <div class="metric"><div class="metric-top"><span>LEGO</span><span>99</span></div><div class="track"><div class="fill" style="--w:99%"></div></div></div>
+    <div class="metric"><div class="metric-top"><span>СКЕЙТБОРД</span><span>73</span></div><div class="track"><div class="fill" style="--w:73%"></div></div></div>
+    <div class="metric"><div class="metric-top"><span>TYLER</span><span>88</span></div><div class="track"><div class="fill" style="--w:88%"></div></div></div>
+    <div class="metric"><div class="metric-top"><span>ИГРЫ</span><span>76</span></div><div class="track"><div class="fill" style="--w:76%"></div></div></div>
+    <div class="metric"><div class="metric-top"><span>СОН</span><span>21</span></div><div class="track"><div class="fill" style="--w:21%"></div></div></div>
+    <div class="metric"><div class="metric-top"><span>ВЫХОД НА УЛИЦУ</span><span>04</span></div><div class="track"><div class="fill" style="--w:4%"></div></div></div>
+    <p class="quote">“Если тебе не весело,<br>тогда какой вообще смысл?»”</p>
+  </div>
+
+  <div class="art">
+    <div class="skate">
+      <i class="wheel w1"></i><i class="wheel w2"></i><i class="wheel w3"></i><i class="wheel w4"></i>
+    </div>
+    <div class="callout c1">СК8.01</div>
+    <div class="callout c2">DEV.04</div>
+    <div class="callout c3">LEGO.03</div>
+    <div class="line l1"></div><div class="line l2"></div><div class="line l3"></div>
+    <div class="side-note">БОЛЕЕ ИНТЕРЕСНЫЙ ЧЕЛОВЕК // АНАЛИЗИРОВАТЬ. НЕ ОСУЖДАТЬ.</div>
+  </div>
+</section>
+
+<div class="section-title">[ ЭКСПЕРИМЕНТ ]</div>
+<section class="protocol">
+  <div>
+    <div class="label">ПРОТОКОЛ ДНЯ РОЖДЕНИЯ / ВРЕМЯ ЗАПУСКА</div>
+    <div class="bigdate">2026.09.12</div>
+    <div style="font-size:11px;margin-top:7px">ПРОДОЛЖИТЕЛЬНОСТЬ = БЕСКОНЕЧНО</div>
+  </div>
+  <div class="terminal" id="terminal">
+    &gt; INITIALIZING...<br>
+    &gt; USER DATA: FOUND<br>
+    &gt; WAITING FOR AUTHORIZATION...<br><br>
+    <button onclick="diagnose()">[ ЗАПУСТИТЬ ДИАГНОСТИКУ ] →</button>
+    <div class="status" id="status"></div>
+  </div>
+</section>
+
+<section class="notes">
+  <div class="note">
+    <div class="label">[ СРЕДА ОБИТАНИЯ ]</div>
+    IDE / СКЕЙТ-ПАРК / LEGO / МУЗЫКА / ИГРЫ<br>
+    <span class="muted">// ВЕРОЯТНО, ГДЕ-ТО РЯДОМ</span>
+  </div>
+  <div class="note">
+    <div class="label">[ ПРИМЕЧАНИЯ ]</div>
+    <div class="quote">有些人让世界变得更有趣。</div>
+    НЕКОТОРЫЕ ЛЮДИ ПРОСТО<br>ДЕЛАЮТ МИР ИНТЕРЕСНЕЕ.<br><br>
+    // СПАСИБО, ЧТО ТЫ — ЭТО ТЫ.
+  </div>
+</section>
+
+
+<section class="gift" id="gift">
+  <div class="birthday" id="birthday">
+    <div class="label">[ ФИНАЛЬНЫЙ ОТЧЁТ ]</div>
+    <div class="birthday-title">С ДНЁМ РОЖДЕНИЯ!<br><span class="green">🎂 32 / 32 SUCCESS</span></div>
+    <p class="small">// ПУСТЬ В ЭТОМ ГОДУ БУДЕТ БОЛЬШЕ<br>// ХОРОШИХ ИДЕЙ, КАТАНИЯ И ПРИЯТНЫХ РЕЛИЗОВ.</p>
+  </div>
+  <div class="gift-inner">
+    <div class="gift-title">ОБНАРУЖЕНИЕ ПОДАРКА<br><span class="green">ОЖИДАНИЕ...</span></div>
+    <div class="label">СКАНИРОВАНИЕ ФИЗИЧЕСКОГО ОБЪЕКТА</div>
+    <div class="progress" id="progress">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div id="giftText" style="font-size:10px;margin-top:9px">ЭТО ТОЛЬКО НАЧАЛО.</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div><strong>⚛ Сделано с уважением.</strong><br>СПЕЦИАЛЬНЫЙ ПРОЕКТ К 32-ЛЕТИЮ.</div>
+  <div>ЧАСТЬ 001 // 2026</div>
+  <div class="stamp">МИР<br>ТЕБЕ</div>
+</footer>
+</main>
+
+<script>
+function diagnose(){
+  const status=document.getElementById('status');
+  const gift=document.getElementById('giftText');
+  const blocks=[...document.querySelectorAll('#progress i')];
+  status.innerHTML='> SCANNING...';
+  let i=0;
+  const messages=[
+    '> CHECKING СОН PATTERNS...',
+    '> DETECTING LEGO DEPENDENCY...',
+    '> ANALYZING SKATEBOARD ADDICTION...',
+    '> MEASURING TYLER EXPOSURE...',
+    '> COMPILING RESULTS...',
+    '> DIAGNOSIS COMPLETE.'
+  ];
+  const timer=setInterval(()=>{
+    status.innerHTML=messages[Math.min(i,messages.length-1)];
+    if(blocks[i]) blocks[i].style.background='#111';
+    i++;
+    if(i>messages.length){
+      clearInterval(timer);
+      status.innerHTML='<span style="color:#31784d">> КРИТИЧЕСКИЙ УРОВЕНЬ: СВЭГА И 0 ЛЕЙМА</span>';
+      gift.innerHTML='ОБНАРУЖЕН ФИЗИЧЕСКИЙ ОБЪЕКТ.<br><br><b>ПОЗДРАВЛЯЕМ. ТЕПЕРЬ ПРОВЕРЬ, ЧТО НАХОДИТСЯ РЯДОМ С ТОБОЙ.</b>';
+    }
+  },420);
+}
+</script>
+</body>
+</html>
